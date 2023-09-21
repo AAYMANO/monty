@@ -11,7 +11,7 @@
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
- * @m: integer
+ * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  *
@@ -20,7 +20,7 @@
  */
 typedef struct stack_s
 {
-        int m;
+        int n;
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
@@ -50,7 +50,7 @@ int len_chars(FILE *);
 void find_func(char *, char *, int, int);
 
 /*Stack operations*/
-stack_t *create_node(int m);
+stack_t *create_node(int n);
 void free_nodes(void);
 void print_stack(stack_t **, unsigned int);
 void add_to_stack(stack_t **, unsigned int);

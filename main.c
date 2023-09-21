@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\m");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	open_file(argv[1]);
@@ -22,10 +22,10 @@ int main(int argc, char *argv[])
 
 /**
  * create_node - Creates a node.
- * @m: Number to go inside the node.
+ * @n: Number to go inside the node.
  * Return: Upon sucess a pointer to the node. Otherwise NULL.
  */
-stack_t *create_node(int m)
+stack_t *create_node(int n)
 {
 	stack_t *node;
 
@@ -34,7 +34,7 @@ stack_t *create_node(int m)
 		err(4);
 	node->next = NULL;
 	node->prev = NULL;
-	node->m = m;
+	node->n = n;
 	return (node);
 }
 

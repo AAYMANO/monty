@@ -12,10 +12,10 @@ void print_char(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 		string_err(11, line_number);
 
-	ascii = (*stack)->m;
+	ascii = (*stack)->n;
 	if (ascii < 0 || ascii > 127)
 		string_err(10, line_number);
-	printf("%c\m", ascii);
+	printf("%c\n", ascii);
 }
 
 /**
@@ -30,20 +30,20 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		printf("\m");
+		printf("\n");
 		return;
 	}
 
 	tmp = *stack;
 	while (tmp != NULL)
 	{
-		ascii = tmp->m;
+		ascii = tmp->n;
 		if (ascii <= 0 || ascii > 127)
 			break;
 		printf("%c", ascii);
 		tmp = tmp->next;
 	}
-	printf("\m");
+	printf("\n");
 }
 
 /**

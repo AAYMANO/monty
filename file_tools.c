@@ -81,7 +81,7 @@ int parse_line(char *buffer, int line_number, int format)
  */
 void find_func(char *opcode, char *value, int ln, int format)
 {
-	int a;
+	int i;
 	int flag;
 
 	instruction_t func_list[] = {
@@ -106,11 +106,11 @@ void find_func(char *opcode, char *value, int ln, int format)
 	if (opcode[0] == '#')
 		return;
 
-	for (flag = 1, a = 0; func_list[a].opcode != NULL; a++)
+	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
-		if (strcmp(opcode, func_list[a].opcode) == 0)
+		if (strcmp(opcode, func_list[i].opcode) == 0)
 		{
-			call_fun(func_list[a].f, opcode, value, ln, format);
+			call_fun(func_list[i].f, opcode, value, ln, format);
 			flag = 0;
 		}
 	}
@@ -132,7 +132,7 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
 	int flag;
-	int a;
+	int i;
 
 	flag = 1;
 	if (strcmp(op, "push") == 0)
@@ -144,9 +144,9 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 		}
 		if (val == NULL)
 			err(5, ln);
-		for (a = 0; val[i] != '\0'; a++)
+		for (i = 0; val[i] != '\0'; i++)
 		{
-			if (isdigit(val[a]) == 0)
+			if (isdigit(val[i]) == 0)
 				err(5, ln);
 		}
 		node = create_node(atoi(val) * flag);

@@ -39,7 +39,7 @@ void print_stack(stack_t **stack, unsigned int line_number)
 	tmp = *stack;
 	while (tmp != NULL)
 	{
-		printf("%d\m", tmp->m);
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }
@@ -72,5 +72,5 @@ void print_top(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
 		more_err(6, line_number);
-	printf("%d\m", (*stack)->m);
+	printf("%d\n", (*stack)->n);
 }
